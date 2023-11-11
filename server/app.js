@@ -12,15 +12,15 @@ app.use(cors());
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 MongoClient.connect('mongodb://localhost:27017')
     .then((client) => {
-        const db = client.db('Malle-Maenz-db');
-        const collection = db.collection('details');
+        const db = client.db('ToddlerWorld');
+        const collection = db.collection('admin');
         const router = newRouter(collection);
 
-        app.use('/api/details', router);
+        app.use('/', router);
     }).catch(console.err);
 
 app.listen(4000, function () {
