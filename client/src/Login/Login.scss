@@ -1,0 +1,85 @@
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2; /* Light gray background for the entire app */
+}
+
+.login-container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px; /* Set a maximum width for the form */
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft box shadow for a modern look */
+    padding: 40px;
+
+    * {
+        font-family: 'Poppins', sans-serif;
+        outline: none;
+        border: none;
+    }
+
+    h3 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    input {
+        display: block;
+        height: 40px;
+        width: calc(100% - 20px);
+        background-color: #f2f2f2; /* Light gray input background */
+        border: 1px solid #dcdcdc; /* Light border for the input */
+        border-radius: 5px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    button {
+        margin-top: 30px;
+        width: 100%;
+        background-color: #4CAF50; /* Green button color */
+        color: #ffffff; /* White text color */
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Smooth transition for button color change */
+
+        &:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding: 30px; /* Adjust padding for smaller screens */
+
+        h3 {
+            font-size: 24px;
+        }
+
+        label,
+        input {
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    }
+}

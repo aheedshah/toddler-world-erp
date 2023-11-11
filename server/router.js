@@ -1,10 +1,9 @@
 const express = require('express');
 const {status, json} = require("express/lib/response");
-const ObjectID = require('mongodb').ObjectID;
 
 const newRouter = function (collection) {
     const router = express.Router();
-
+    router.use(express.json());
     const errorCatcher = function(inputError){
         console.error(inputError);
         status(500);
@@ -27,6 +26,23 @@ const newRouter = function (collection) {
                 res.json(result[0])
             })
             .catch((err) => errorCatcher(err));
+    });
+
+    router.post("/login", (req, res) => {
+        console.log(req.body);
+        const loginData = req.body;
+        // console.log(loginData);
+
+        collection
+            .findOne({ username: loginData.username, password: loginData.password })
+            .then((result) => {
+                console.log(result);
+                if(result !== null) {
+                    res.send('Welcome');
+                } else {
+                    res.send('Wrong Username or password');
+                }
+            });
     });
 
     return router;
